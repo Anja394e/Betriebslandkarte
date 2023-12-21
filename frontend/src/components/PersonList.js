@@ -1,60 +1,57 @@
 // src/components/PersonList.js
 
-import React, { useState, useEffect } from 'react';
+import React, {useEffect, useState} from 'react';
 
-import axios from 'axios';
 
-import ProductTypeFilter from './ProductTypeFilter';
-import ProductListByType from './ProductListByType';
 import './style.css';
-import AddPersonButton from "./AddPersonButton";
-
-
+import ASGangTypeFilter from "./ASGangTypeFilter";
+import ASGangListeTypen from "./ASGangListeTypen";
+import axios from "axios";
+import AddPerson from "./AddPerson";
 
 
 const PersonList = () => {
 
     const [persons, setPersons] = useState([]);
-    const [selectedProductType, setSelectedProductType] = useState(null);
-    const [filterProductType, setFilterProductType] = useState('');
+    const [selectedASGangType, setSelectedASGangType] = useState(null);
+    const [filterASGangType, setFilterASGangType] = useState('');
 
     const handleAddPerson = (newPerson) => {
-        setPersons([... persons, newPerson]);
+        setPersons([...persons, newPerson]);
+    };
+
+    const getMembershipStatus = (isMember) => {
+        return isMember ? 'Ja!' : 'Nein, noch nicht';
     };
 
 
 
     useEffect(() => {
-
         const fetchPersons = async () => {
-
             try {
 
-                const response = await axios.get('http://localhost:8080/api/v1/persons');
+                const response = await axios
+                    .get('http://localhost:8080/api/v1/map')
+
+                console.log(response);
+
 
                 setPersons(response.data);
-
             } catch (error) {
-
                 console.error('Error fetching persons:', error);
-
+                // Hier können Sie eine State-Variable setzen, um den Fehler zu handhaben
             }
-
         };
 
-
-
         fetchPersons();
-
     }, []);
 
 
+    const handleASGangTypeClick = (aSGangType) => {
 
-    const handleProductTypeClick = (productType) => {
+        setSelectedASGangType(aSGangType);
 
-        setSelectedProductType(productType);
-
-        setFilterProductType(productType); // Set filter to selected product type
+        setFilterASGangType(aSGangType); // Set filter to selected aSGang type
 
     };
 
@@ -62,9 +59,9 @@ const PersonList = () => {
 
     const handleFilterChange = (event) => {
 
-        setFilterProductType(event.target.value);
+        setFilterASGangType(event.target.value);
 
-        setSelectedProductType(null);
+        setSelectedASGangType(null);
 
     };
 
@@ -80,13 +77,13 @@ const PersonList = () => {
 
             <label>
 
-                Filter by Product Type:{' '}
+                Filter by ASGang Type:{' '}
 
                 <input
 
                     type="text"
 
-                    value={filterProductType}
+                    value={filterASGangType}
 
                     onChange={handleFilterChange}
 
@@ -102,37 +99,42 @@ const PersonList = () => {
 
                     <li key={person.id}>
 
-                        <strong>Name:</strong> {person.firstName} {person.lastName} <br />
-
-                        <strong>Email:</strong> {person.email} <br />
-
-                        <strong>Creation Date:</strong> {person.creationDate} <br />
-
-                        <strong>Products:</strong>
+                        <strong>Mitglied:</strong> {getMembershipStatus(person.mitglied)} <br/>
+                        <strong>Betrieb, Standort:</strong> {person.betrieb} {person.standort} <br/>
+                        <strong>Erstell Datum:</strong> {person.erstellDatum} <br/>
+                        <strong>Jahrgang:</strong> {person.jahrgang} <br/>
+                        <strong>Ausbildung:</strong> {person.ausbildung ? 'Ja' : 'Nein'} <br/>
+                        <strong>Ausbildungs- oder Studiengang:</strong> {person.ausbildungsgang} <br/>
+                        <strong>Mitglied seit:</strong> {person.mitgliedSeit} <br/>
+                        <strong>VL:</strong> {person.vl ? 'Ja' : 'Nein'} <br/>
+                        <strong>Aktionen:</strong>
+                        <ul>
+                            {person.aktionen && person.aktionen.map((aktion) => (
+                                <li key={aktion.id}>Aktion Name: {aktion.name}</li>
+                            ))}
+                        </ul>
 
                         <ul>
 
-                            {person.products
+                            {person.aSGangs && person.aSGangs.filter((aSGang) =>
 
-                                .filter((product) =>
-
-                                    product.productType.toLowerCase().includes(filterProductType.toLowerCase())
+                                    aSGang.aSGangType.toLowerCase().includes(filterASGangType.toLowerCase())
 
                                 )
 
-                                .map((product) => (
+                                .map((aSGang) => (
 
-                                    <li key={product.id}>
+                                    <li key={aSGang.id}>
 
-                                        <strong>Product Name:</strong> {product.productName} <br />
+                                        <strong>ASGang Name:</strong> {aSGang.aSGang} <br/>
 
-                                        <strong>Product Type:</strong>{' '}
+                                        <strong>ASGang Type:</strong>{' '}
 
-                                        <ProductTypeFilter
+                                        <ASGangTypeFilter
 
-                                            productType={product.productType}
+                                            aSGangType={aSGang.aSGangType}
 
-                                            onClick={handleProductTypeClick}
+                                            onClick={handleASGangTypeClick}
 
                                         />
 
@@ -153,28 +155,26 @@ const PersonList = () => {
             </ul>
 
 
+            {selectedASGangType && (
 
-            {selectedProductType && (
+                <ASGangListeTypen
 
-                <ProductListByType
+                    aSGangs={persons
 
-                    products={persons
-
-                        .flatMap((person) => person.products)
+                        .flatMap((person) => person.aSGangs)
 
                         .filter(
-
-                            (product) => product.productType.toLowerCase() === selectedProductType.toLowerCase()
+                            (aSGang) => aSGang.aSGangType.toLowerCase() === selectedASGangType.toLowerCase()
 
                         )}
 
-                    selectedProductType={selectedProductType}
+                    selectedASGangType={selectedASGangType}
 
                 />
 
             )}
 
-            <AddPersonButton onAddPerson={handleAddPerson} />
+            <AddPerson on AddPerson={handleAddPerson}/>
 
         </div>
 

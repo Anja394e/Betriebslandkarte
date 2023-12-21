@@ -1,10 +1,9 @@
 // Import necessary dependencies
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import {render, screen} from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect'; // Optional, for additional matchers
-
 // Import the component you want to test
-import App from './App'; // Replace with the actual component path
+import PersonList from './components/PersonList'; // Replace with the actual component path
 
 // Mock the data for testing purposes (example)
 const mockPersons = [
@@ -22,10 +21,10 @@ jest.mock('./map', () => ({
 
  */
 
-describe('App Component', () => {
+describe('PersonList Component', () => {
   it('Renders a list of persons', async () => {
     // Render the component
-    render(<App />);
+      render(<PersonList/>);
 
     // Wait for the component to fetch and display persons (assuming it's an async operation)
     // You might need to add logic to handle loading state before the data is fetched
