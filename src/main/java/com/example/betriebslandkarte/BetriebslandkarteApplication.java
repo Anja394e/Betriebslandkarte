@@ -1,5 +1,3 @@
-#!/usr/bin/env java
-
 package com.example.betriebslandkarte;
 
 import org.springframework.boot.SpringApplication;
