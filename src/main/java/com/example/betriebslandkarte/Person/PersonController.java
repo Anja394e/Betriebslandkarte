@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@CrossOrigin(origins = "http://localhost:3000") // Specify the allowed origin
+@CrossOrigin// Specify the allowed origin: allow all origins
 @RestController
 @RequestMapping(path = "api/v1/map")
 public class PersonController {
