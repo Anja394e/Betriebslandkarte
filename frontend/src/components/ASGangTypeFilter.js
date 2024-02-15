@@ -1,15 +1,15 @@
-// src/components/ASGangTypeFilter.js
+// src/components/StandortFilter.js
 
 import React from 'react';
 
 
-const ASGangTypeFilter = ({aSGangType, onClick}) => {
+const StandortFilter = ({Standort, onClick}) => {
 
     return (
 
-        <span className="aSGangTypeFilter" onClick={() => onClick(aSGangType)}>
+        <span className="StandortFilter" onClick={() => onClick(Standort)}>
 
-            {aSGangType}
+            {Standort}
 
     </span>
 
@@ -18,4 +18,4 @@ const ASGangTypeFilter = ({aSGangType, onClick}) => {
 };
 
 
-export default ASGangTypeFilter;
+export default StandortFilter;
