@@ -113,6 +113,7 @@ const PersonList = () => {
 
             </ul>
 
+{/*
 
             {selectedStandort && (
 
@@ -132,7 +133,7 @@ const PersonList = () => {
                 />
 
             )}
-
+*/}
             <AddPerson on AddPerson={handleAddPerson}/>
 
         </div>
