@@ -28,7 +28,7 @@ public class PersonService {
         person.setErstellDatum(new Date());
 
         if (!person.isMitglied()) {
-            person.setMitglidSeit(0);
+            person.setMitgliedSeit(0);
         }
 
         personRepo.save(person);
@@ -54,9 +54,9 @@ public class PersonService {
         oldPerson.setStandort(newPerson.getStandort());
 
         if (!newPerson.isMitglied()) {
-            oldPerson.setMitglidSeit(0);
+            oldPerson.setMitgliedSeit(0);
         } else {
-            oldPerson.setMitglidSeit(newPerson.getMitglidSeit());
+            oldPerson.setMitgliedSeit(newPerson.getMitgliedSeit());
         }
 
         personRepo.save(oldPerson);
