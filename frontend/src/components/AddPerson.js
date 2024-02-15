@@ -1,8 +1,6 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 
-// Import-Anweisungen und PersonForm-Komponentendefinition bleiben unverändert
-
 function PersonForm() {
     const [postSuccess, setPostSuccess] = useState(false);
     const [postError, setPostError] = useState(false);
