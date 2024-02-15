@@ -4,10 +4,12 @@ import React, {useEffect, useState} from 'react';
 
 
 import './style.css';
-{/*import StandortFilter from "./StandortFilter";
-import StandortListeTypen from "./StandortListeTypen"; */}
 import axios from "axios";
 import AddPerson from "./AddPerson";
+
+{/*import StandortFilter from "./StandortFilter";
+import StandortListeTypen from "./StandortListeTypen"; */}
+
 
 
 const PersonList = () => {
