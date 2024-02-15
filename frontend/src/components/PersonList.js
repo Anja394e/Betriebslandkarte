@@ -103,19 +103,20 @@ const PersonList = () => {
                         <strong>Betrieb, Standort:</strong> {person.betrieb} {person.standort} <br/>
                         <strong>Erstell Datum:</strong> {person.erstellDatum} <br/>
                         <strong>Jahrgang:</strong> {person.jahrgang} <br/>
+                             
                         {person.aSGang.map((entry, index) => (
-                            <div key={index}>
-                                {entry.Ausbildung ? (
-                                    <div>
-                                        <strong>Ausbildung:</strong> {entry.ASGang}
-                                    </div>
-                                ) : (
-                                    <div>
-                                        <strong>Studium:</strong> {entry.ASGang}
-                                    </div>
-                                )}
-                            </div>
-                        ))}
+                        <div key={index}>
+                            {entry.Ausbildung ? (
+                                <div>
+                                    <strong>Ausbildung:</strong> {entry.ASGang}
+                                </div>
+                            ) : (
+                                <div>
+                                    <strong>Studium:</strong> {entry.ASGang}
+                                </div>
+                            )}
+                        </div>
+                            
                         <strong>Mitglied seit:</strong> {person.mitgliedSeit} <br/>
                         <strong>VL:</strong> {person.vl ? 'Ja' : 'Nein'} <br/>
                         <strong>Aktionen:</strong>
