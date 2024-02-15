@@ -106,7 +106,7 @@ const PersonList = () => {
                         <strong>Erstell Datum:</strong> {person.erstellDatum} <br/>
                         <strong>Jahrgang:</strong> {person.jahrgang} <br/>
                        
-                        <strong>{person.aSGang.Ausbildung ? 'Ausbildung:' : 'Studium:'}</strong> {person.aSGang.ASGang}  
+                        <strong>{person.ausbildung ? 'Ausbildung:' : 'Studium:'}</strong> {person.aSGang}
                              
                         <strong>Mitglied seit:</strong> {person.mitgliedSeit} <br/>
                         <strong>VL:</strong> {person.vl ? 'Ja' : 'Nein'} <br/>
