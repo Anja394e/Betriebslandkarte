@@ -24,7 +24,7 @@ function PersonForm() {
 
         try {
             // Senden der Daten an die Backend-API
-            const response = await axios.post('http://localhost:8080/api/v1/map', personData);
+            const response = await axios.post('http://164.30.70.4:8080/api/v1/map', personData);
 
             console.log('Daten erfolgreich gesendet:', response.data);
             // Hier können Sie die Antwort des Servers verarbeiten oder eine Bestätigung für den Benutzer anzeigen
