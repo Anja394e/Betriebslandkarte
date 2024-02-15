@@ -4,8 +4,10 @@ import React, {useEffect, useState} from 'react';
 
 
 import './style.css';
-import StandortFilter from "./StandortFilter";
-import StandortListeTypen from "./StandortListeTypen";
+
+{/*import StandortFilter from "./StandortFilter";
+import StandortListeTypen from "./StandortListeTypen"; */}
+
 import axios from "axios";
 import AddPerson from "./AddPerson";
 
@@ -13,8 +15,10 @@ import AddPerson from "./AddPerson";
 const PersonList = () => {
 
     const [persons, setPersons] = useState([]);
-    const [selectedStandort, setSelectedStandort] = useState(null);
-    const [filterStandort, setFilterStandort] = useState('');
+
+    
+    {/* const [selectedStandort, setSelectedStandort] = useState(null);
+    const [filterStandort, setFilterStandort] = useState(''); */}
 
     const handleAddPerson = (newPerson) => {
         setPersons([...persons, newPerson]);
@@ -48,7 +52,7 @@ const PersonList = () => {
     }, []);
 
 
-    const handleStandortClick = (Standort) => {
+    {/* const handleStandortClick = (Standort) => {
 
         setSelectedStandort(Standort);
 
@@ -64,7 +68,7 @@ const PersonList = () => {
 
         setSelectedStandort(null);
 
-    };
+    }; */}
 
 
 
@@ -75,7 +79,7 @@ const PersonList = () => {
             <h2>Person List</h2>
 
 
-
+    {/*
             <label>
 
                 Filter by ASGang Type:{' '}
@@ -91,6 +95,7 @@ const PersonList = () => {
                 />
 
             </label>
+            */}
 
  
 
