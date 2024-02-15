@@ -31,7 +31,7 @@ const PersonList = () => {
             try {
 
                 const response = await axios
-                    .get('http://localhost:8080/api/v1/map')
+                    .get('http://164.30.70.4:8080/api/v1/map')
 
                 console.log(response);
 
