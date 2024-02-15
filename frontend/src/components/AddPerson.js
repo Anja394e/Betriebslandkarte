@@ -6,9 +6,8 @@ function PersonForm() {
     const [postError, setPostError] = useState(false);
 
     const [personData, setPersonData] = useState({
-        verdiMitglied: false,
-        ausbildung: false,
-        ausbildungsgang: '',
+        mitlgied: false,
+        asgang: '',
         jahrgang: '',
         betrieb: '',
         standort: '',
@@ -50,14 +49,14 @@ function PersonForm() {
                     <div>
                         <label>
                             ver.di Mitglied:
-                            <input type="checkbox" name="verdiMitglied" checked={personData.verdiMitglied}
+                            <input type="checkbox" name="mitlgied" checked={personData.mitlgied}
                                    onChange={handleInputChange}/>
                         </label>
                     </div>
                     <div>
                         <label>
                             Ausbildungs- oder Studiengang:
-                            <input type="text" name="ausbildungsgang" value={personData.ausbildungsgang}
+                            <input type="text" name="asgang" value={personData.asgang}
                                    onChange={handleInputChange}/>
                         </label>
                     </div>
