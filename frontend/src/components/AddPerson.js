@@ -6,7 +6,7 @@ function PersonForm() {
     const [postError, setPostError] = useState(false);
 
     const [personData, setPersonData] = useState({
-        mitlgied: false,
+        mitglied: false,
         asgang: '',
         jahrgang: '',
         betrieb: '',
@@ -49,7 +49,7 @@ function PersonForm() {
                     <div>
                         <label>
                             ver.di Mitglied:
-                            <input type="checkbox" name="mitlgied" checked={personData.mitlgied}
+                            <input type="checkbox" name="mitglied" checked={personData.mitglied}
                                    onChange={handleInputChange}/>
                         </label>
                     </div>
