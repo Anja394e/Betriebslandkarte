@@ -30,12 +30,13 @@ const PersonList = () => {
         const fetchPersons = async () => {
             try {
 
+                //Wichtig: hier werden die Daten vom Backend-Server mit axios in response gespeichert
                 const response = await axios
                     .get('http://164.30.70.4:8080/api/v1/map')
 
                 console.log(response);
 
-
+                //hier werden die Backend Daten über die Personen in setPersons gespeichert
                 setPersons(response.data);
             } catch (error) {
                 console.error('Error fetching persons:', error);
@@ -94,6 +95,7 @@ const PersonList = () => {
 
 
             <ul>
+                        //Wichtig: hier werden die Variablen auf ihr gewolltes Verhalten hin gemappt
 
                 {persons.map((person) => (
 
@@ -104,7 +106,7 @@ const PersonList = () => {
                         <strong>Erstell Datum:</strong> {person.erstellDatum} <br/>
                         <strong>Jahrgang:</strong> {person.jahrgang} <br/>
                              
-                        {person.aSGang.map((entry, index) => (
+                        {person.aSGang && person.aSGang.map((entry, index) => (
                             <div key={index}>
                                 {entry.Ausbildung ? (
                                     <div>
