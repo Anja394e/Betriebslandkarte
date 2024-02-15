@@ -26,31 +26,31 @@ public class Person {
     private String betrieb;
 
     @NonNull
-    @Column(name = "Standort", nullable = false)
+    @Column(name = "standort", nullable = false)
     private String standort;
 
     @NonNull
-    @Column(name = "ErstellDatum")
+    @Column(name = "erstellDatum")
     private Date erstellDatum;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "Person_ASGang")
+    @JoinColumn(name = "person_ASGang")
     private ASGang aSGang;
 
     @NonNull
-    @Column(name = "Jahrgang", nullable = false)
+    @Column(name = "jahrgang", nullable = false)
     private int jahrgang;
 
     @NonNull
-    @Column(name = "Mitglied", nullable = false)
+    @Column(name = "mitglied", nullable = false)
     private boolean mitglied;
 
     @NonNull
-    @Column(name = "MitgliedSeit", nullable = false)
+    @Column(name = "mitgliedSeit", nullable = false)
     private int mitglidSeit;
 
     @NonNull
-    @Column(name = "VL", nullable = false)
+    @Column(name = "vL", nullable = false)
     private boolean vl;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
