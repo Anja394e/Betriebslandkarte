@@ -68,53 +68,79 @@ const PersonList = () => {
 
 
 
-return (
+    return (
+
         <div>
+
             <h2>Person List</h2>
 
+
+
             <label>
+
                 Filter by ASGang Type:{' '}
+
                 <input
+
                     type="text"
+
                     value={filterStandort}
+
                     onChange={handleFilterChange}
+
                 />
+
             </label>
 
+ 
+
             <ul>
-                {persons.map((person) => (
+               
+
+                {persons.map((person) => ( //Wichtig: hier werden die Variablen auf ihr gewolltes Verhalten hin gemappt
+
                     <li key={person.id}>
+
                         <strong>Mitglied:</strong> {getMembershipStatus(person.mitglied)} <br/>
                         <strong>Betrieb, Standort:</strong> {person.betrieb} {person.standort} <br/>
                         <strong>Erstell Datum:</strong> {person.erstellDatum} <br/>
                         <strong>Jahrgang:</strong> {person.jahrgang} <br/>
                         <strong>VL:</strong> {person.vl ? 'Ja' : 'Nein'} <br/>
+
                     </li>
+
                 ))}
+
             </ul>
 
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label>
-                        Standort auswählen:
-                        <select value={selectedStandort} onChange={handleStandortChange}>
-                            <option value="">Alle Standorte</option>
-                            {/* Hier die Optionen für die Standorte einfügen */}
-                        </select>
-                    </label>
-                </div>
 
-                {selectedStandort && (
-                    <StandortListeTypen
-                        Standort={persons.filter((person) => person.standort.toLowerCase() === selectedStandort.toLowerCase())}
-                        selectedStandort={selectedStandort}
-                    />
-                )}
+            {selectedStandort && (
 
-                <AddPerson onAddPerson={handleAddPerson}/>
-            </form>
+                <StandortListeTypen
+
+                    aSGangs={persons
+
+                        .flatMap((person) => person.aSGangs)
+
+                        .filter(
+                            (aSGang) => aSGang.Standort.toLowerCase() === selectedStandort.toLowerCase()
+
+                        )}
+
+                    selectedStandort={selectedStandort}
+
+                />
+
+            )}
+
+            <AddPerson on AddPerson={handleAddPerson}/>
+
         </div>
+
     );
-}
+
+};
+
+
 
 export default PersonList;
