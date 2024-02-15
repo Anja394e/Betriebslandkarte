@@ -106,8 +106,13 @@ const PersonList = () => {
                         <strong>Erstell Datum:</strong> {person.erstellDatum} <br/>
                         <strong>Jahrgang:</strong> {person.jahrgang} <br/>
                        
-                        <strong>{person.ausbildung ? 'Ausbildung:' : 'Studium:'}</strong> {person.aSGang}
-                             
+                        {/* Überprüfen, ob Ausbildung oder Studium */}
+                        {person.ausbildung !== undefined && person.aSGang !== undefined && (
+                            <div>
+                                <strong>{person.ausbildung ? 'Ausbildung:' : 'Studium:'}</strong> {person.aSGang}
+                            </div>
+                        )}   
+
                         <strong>Mitglied seit:</strong> {person.mitgliedSeit} <br/>
                         <strong>VL:</strong> {person.vl ? 'Ja' : 'Nein'} <br/>
                         <strong>Aktionen:</strong>
