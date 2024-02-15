@@ -1,28 +1,28 @@
-// src/components/ASGangListByType.js
+// src/components/StandortListByType.js
 
 import React from 'react';
 import './style.css';
 
 
-const ASGangListByType = ({aSGangs, selectedASGangType}) => {
+const StandortListByType = ({Standorts, selectedStandortType}) => {
 
     return (
 
         <div>
 
-            <h3>ASGangs of Type: {selectedASGangType}</h3>
+            <h3>Standorts of Type: {selectedStandortType}</h3>
 
             <ul>
 
-                {aSGangs
+                {Standorts
 
-                    .filter((aSGang) => aSGang.aSGangType === selectedASGangType)
+                    .filter((Standort) => Standort.StandortType === selectedStandortType)
 
-                    .map((aSGang) => (
+                    .map((Standort) => (
 
-                        <li key={aSGang.aSGang}>
+                        <li key={Standort.Standort}>
 
-                            <strong>ASGang Name:</strong> {aSGang.aSGang}
+                            <strong>Standort Name:</strong> {Standort.Standort}
 
                         </li>
 
@@ -37,4 +37,4 @@ const ASGangListByType = ({aSGangs, selectedASGangType}) => {
 };
 
 
-export default ASGangListByType;
+export default StandortListByType;
