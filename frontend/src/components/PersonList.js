@@ -5,7 +5,7 @@ import React, {useEffect, useState} from 'react';
 
 import './style.css';
 import StandortFilter from "./StandortFilter";
-import ASGangListeTypen from "./ASGangListeTypen";
+import StandortListeTypen from "./StandortListeTypen";
 import axios from "axios";
 import AddPerson from "./AddPerson";
 
@@ -116,7 +116,7 @@ const PersonList = () => {
 
             {selectedStandort && (
 
-                <ASGangListeTypen
+                <StandortListeTypen
 
                     aSGangs={persons
 
