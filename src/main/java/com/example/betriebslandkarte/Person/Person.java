@@ -47,7 +47,7 @@ public class Person {
 
     @NonNull
     @Column(name = "mitgliedSeit", nullable = false)
-    private int mitglidSeit;
+    private int mitgliedSeit;
 
     @NonNull
     @Column(name = "vL", nullable = false)
