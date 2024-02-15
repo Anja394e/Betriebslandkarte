@@ -105,58 +105,7 @@ const PersonList = () => {
                         <strong>Betrieb, Standort:</strong> {person.betrieb} {person.standort} <br/>
                         <strong>Erstell Datum:</strong> {person.erstellDatum} <br/>
                         <strong>Jahrgang:</strong> {person.jahrgang} <br/>
-                        <strong>Ausb.:</strong> {person.ausbildung} <br/>
-                        <strong>Gang:</strong> {person.aSGang} <br/>
-                       
-                        {/* Überprüfen, ob Ausbildung oder Studium }
-                        {person.ASGang.ausbildung !== undefined && person.ASGang.aSGang !== undefined && (
-                            <div>
-                                <strong>{person.ASGang.ausbildung ? 'Ausbildung:' : 'Studium:'}</strong> {person.ASGang.aSGang}
-                            </div>
-                        )}   */}
-
-                        <strong>Mitglied seit:</strong> {person.mitgliedSeit} <br/>
                         <strong>VL:</strong> {person.vl ? 'Ja' : 'Nein'} <br/>
-                        <strong>Aktionen:</strong>
-                        <ul>
-                            {person.aktionen && person.aktionen.map((aktion) => (
-                                <li key={aktion.id}>Aktion Name: {aktion.name}</li>
-                            ))}
-                        </ul>
-
-                        <ul>
-
-                            {person.aSGangs && person.aSGangs.filter((aSGang) =>
-
-                                    aSGang.aSGangType.toLowerCase().includes(filterASGangType.toLowerCase())
-
-                                )
-
-                                .map((aSGang) => (
-
-                                    <li key={aSGang.id}>
-
-                                        <strong>ASGang Name:</strong> {aSGang.aSGang} <br/>
-
-                                        <strong>ASGang Type:</strong>{' '}
-
-                                        <ASGangTypeFilter
-
-                                            aSGangType={aSGang.aSGangType}
-
-                                            onClick={handleASGangTypeClick}
-
-                                        />
-
-                                        <br />
-
-                                    </li>
-
-                                ))}
-
-                        </ul>
-
-                        <hr />
 
                     </li>
 
