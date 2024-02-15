@@ -105,15 +105,15 @@ const PersonList = () => {
                         <strong>Betrieb, Standort:</strong> {person.betrieb} {person.standort} <br/>
                         <strong>Erstell Datum:</strong> {person.erstellDatum} <br/>
                         <strong>Jahrgang:</strong> {person.jahrgang} <br/>
-                        <strong>Jahrgang:</strong> {person.ASGang.ausbildung} <br/>
-                        <strong>Jahrgang:</strong> {person.ASGang.aSGang} <br/>
+                        <strong>Ausb.:</strong> {person.ausbildung} <br/>
+                        <strong>Gang:</strong> {person.aSGang} <br/>
                        
-                        {/* Überprüfen, ob Ausbildung oder Studium */}
-                        {person.ausbildung !== undefined && person.aSGang !== undefined && (
+                        {/* Überprüfen, ob Ausbildung oder Studium }
+                        {person.ASGang.ausbildung !== undefined && person.ASGang.aSGang !== undefined && (
                             <div>
-                                <strong>{person.ausbildung ? 'Ausbildung:' : 'Studium:'}</strong> {person.aSGang}
+                                <strong>{person.ASGang.ausbildung ? 'Ausbildung:' : 'Studium:'}</strong> {person.ASGang.aSGang}
                             </div>
-                        )}   
+                        )}   */}
 
                         <strong>Mitglied seit:</strong> {person.mitgliedSeit} <br/>
                         <strong>VL:</strong> {person.vl ? 'Ja' : 'Nein'} <br/>
