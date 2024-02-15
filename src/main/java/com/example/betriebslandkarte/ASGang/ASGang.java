@@ -16,12 +16,12 @@ public class ASGang {
 
     @Id
     @NonNull
-    @Column(name = "ASGang", nullable = false)
-    private String ASGang;
+    @Column(name = "aSGang", nullable = false)
+    private String aSGang;
 
     @NonNull
-    @Column(name = "Ausbildung", nullable = false)
-    private boolean Ausbildung; //bei Ausbildung true; bei Studium false
+    @Column(name = "ausbildung", nullable = false)
+    private boolean ausbildung; //bei Ausbildung true; bei Studium false
 
     public ASGang(String name) {
         this.setASGang(name);

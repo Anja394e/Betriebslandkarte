@@ -105,6 +105,8 @@ const PersonList = () => {
                         <strong>Betrieb, Standort:</strong> {person.betrieb} {person.standort} <br/>
                         <strong>Erstell Datum:</strong> {person.erstellDatum} <br/>
                         <strong>Jahrgang:</strong> {person.jahrgang} <br/>
+                        <strong>Jahrgang:</strong> {person.ASGang.ausbildung} <br/>
+                        <strong>Jahrgang:</strong> {person.ASGang.aSGang} <br/>
                        
                         {/* Überprüfen, ob Ausbildung oder Studium */}
                         {person.ausbildung !== undefined && person.aSGang !== undefined && (
