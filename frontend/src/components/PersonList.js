@@ -4,7 +4,7 @@ import React, {useEffect, useState} from 'react';
 
 
 import './style.css';
-import ASGangTypeFilter from "./ASGangTypeFilter";
+import StandortFilter from "./StandortFilter";
 import ASGangListeTypen from "./ASGangListeTypen";
 import axios from "axios";
 import AddPerson from "./AddPerson";
@@ -13,8 +13,8 @@ import AddPerson from "./AddPerson";
 const PersonList = () => {
 
     const [persons, setPersons] = useState([]);
-    const [selectedASGangType, setSelectedASGangType] = useState(null);
-    const [filterASGangType, setFilterASGangType] = useState('');
+    const [selectedStandort, setSelectedStandort] = useState(null);
+    const [filterStandort, setFilterStandort] = useState('');
 
     const handleAddPerson = (newPerson) => {
         setPersons([...persons, newPerson]);
@@ -48,11 +48,11 @@ const PersonList = () => {
     }, []);
 
 
-    const handleASGangTypeClick = (aSGangType) => {
+    const handleStandortClick = (Standort) => {
 
-        setSelectedASGangType(aSGangType);
+        setSelectedStandort(Standort);
 
-        setFilterASGangType(aSGangType); // Set filter to selected aSGang type
+        setFilterStandort(Standort); // Set filter to selected aSGang type
 
     };
 
@@ -60,9 +60,9 @@ const PersonList = () => {
 
     const handleFilterChange = (event) => {
 
-        setFilterASGangType(event.target.value);
+        setFilterStandort(event.target.value);
 
-        setSelectedASGangType(null);
+        setSelectedStandort(null);
 
     };
 
@@ -84,7 +84,7 @@ const PersonList = () => {
 
                     type="text"
 
-                    value={filterASGangType}
+                    value={filterStandort}
 
                     onChange={handleFilterChange}
 
@@ -114,7 +114,7 @@ const PersonList = () => {
             </ul>
 
 
-            {selectedASGangType && (
+            {selectedStandort && (
 
                 <ASGangListeTypen
 
@@ -123,11 +123,11 @@ const PersonList = () => {
                         .flatMap((person) => person.aSGangs)
 
                         .filter(
-                            (aSGang) => aSGang.aSGangType.toLowerCase() === selectedASGangType.toLowerCase()
+                            (aSGang) => aSGang.Standort.toLowerCase() === selectedStandort.toLowerCase()
 
                         )}
 
-                    selectedASGangType={selectedASGangType}
+                    selectedStandort={selectedStandort}
 
                 />
 
