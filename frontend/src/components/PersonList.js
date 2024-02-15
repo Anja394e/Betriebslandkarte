@@ -92,12 +92,12 @@ const PersonList = () => {
 
             </label>
 
- //Wichtig: hier werden die Variablen auf ihr gewolltes Verhalten hin gemappt
+ 
 
             <ul>
                
 
-                {persons.map((person) => (
+                {persons.map((person) => ( //Wichtig: hier werden die Variablen auf ihr gewolltes Verhalten hin gemappt
 
                     <li key={person.id}>
 
