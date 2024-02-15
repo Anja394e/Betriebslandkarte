@@ -2,21 +2,17 @@ import React, {useState} from 'react';
 import axios from 'axios';
 
 function PersonForm() {
-
     const [postSuccess, setPostSuccess] = useState(false);
+    const [postError, setPostError] = useState(false);
 
     const [personData, setPersonData] = useState({
-
         verdiMitglied: false,
-        ausbildung: false,
         ausbildungsgang: '',
         jahrgang: '',
         betrieb: '',
         standort: '',
         mitgliedSeit: '',
         vl: false,
-
-        // Felder der Person hier...
     });
 
     const handleSubmit = async (event) => {
@@ -25,26 +21,13 @@ function PersonForm() {
         try {
             // Senden der Daten an die Backend-API
             const response = await axios.post('http://164.30.70.4:8080/api/v1/map', personData);
-
             console.log('Daten erfolgreich gesendet:', response.data);
-            // Hier können Sie die Antwort des Servers verarbeiten oder eine Bestätigung für den Benutzer anzeigen
-
             setPostSuccess(true);
-
-            // Optional: Setzen Sie die Formularfelder zurück
-            setPersonData({
-                betrieb: '',
-                standort: '',
-                jahrgang: '',
-                mitgliedSeit: '',
-                vl: false,
-                ausbildung: false,
-                ausbildungsgang: '',
-                // Weitere Felder zurücksetzen...
-            });
+            setPostError(false);
         } catch (error) {
             console.error('Fehler beim Senden der Daten:', error);
-            // Hier können Sie eine Fehlermeldung für den Benutzer anzeigen
+            setPostSuccess(false);
+            setPostError(true);
         }
     };
 
@@ -58,17 +41,6 @@ function PersonForm() {
         });
     };
 
-    const renderSuccessMessage = () => {
-        if (postSuccess) {
-            return (
-                <div style={{color: 'green'}}>
-                    Daten erfolgreich gesendet!
-                </div>
-            );
-        }
-        return null;
-    };
-
     return (
         <form onSubmit={handleSubmit}>
             <div>
@@ -77,13 +49,6 @@ function PersonForm() {
                         <label>
                             ver.di Mitglied:
                             <input type="checkbox" name="verdiMitglied" checked={personData.verdiMitglied}
-                                   onChange={handleInputChange}/>
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            Ausbildung:
-                            <input type="checkbox" name="ausbildung" checked={personData.ausbildung}
                                    onChange={handleInputChange}/>
                         </label>
                     </div>
@@ -132,6 +97,10 @@ function PersonForm() {
                 <button type="submit">Person Hinzufügen</button>
             </div>
 
+            {/* Erfolgsmeldung */}
+            {postSuccess && <div style={{color: 'green'}}>Daten erfolgreich gesendet!</div>}
+            {/* Fehlermeldung */}
+            {postError && <div style={{color: 'red'}}>Fehler beim Senden der Daten!</div>}
         </form>
     );
 }
