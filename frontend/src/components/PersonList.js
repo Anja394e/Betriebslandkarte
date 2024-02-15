@@ -114,23 +114,25 @@ const PersonList = () => {
             </ul>
 
 
+            <form onSubmit={handleSubmit}>
+            {/* Formularelemente bleiben unverändert */}
+            <div>
+                <label>
+                    Standort auswählen:
+                    <select value={selectedStandort} onChange={handleStandortChange}>
+                        <option value="">Alle Standorte</option>
+                        {/* Hier die Optionen für die Standorte einfügen */}
+                    </select>
+                </label>
+            </div>
+
             {selectedStandort && (
-
                 <StandortListeTypen
-
-                    aSGangs={persons
-
-                        .flatMap((person) => person.aSGangs)
-
-                        .filter(
-                            (aSGang) => aSGang.Standort.toLowerCase() === selectedStandort.toLowerCase()
-
-                        )}
-
+                    Standort={persons
+                        .filter((person) => person.standort.toLowerCase() === selectedStandort.toLowerCase())
+                    }
                     selectedStandort={selectedStandort}
-
                 />
-
             )}
 
             <AddPerson on AddPerson={handleAddPerson}/>
