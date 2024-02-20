@@ -76,7 +76,7 @@ const PersonList = () => {
 
         <div>
 
-            <h2>Person List</h2>
+            <h2>Mapping unserer Telekom Jugend und ver.di Mitgliedern</h2>
 
 
     {/*
